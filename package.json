@@ -1,0 +1,19 @@
+{
+  "name": "ContactsApp",
+  "version": "0.0.0",
+  "description": "ContactsApp - Mean & Heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pbdesk/ContactsApp.git"
+  },
+  "author": "Pinal Bhatt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pbdesk/ContactsApp/issues"
+  },
+  "homepage": "https://github.com/pbdesk/ContactsApp"
+}
