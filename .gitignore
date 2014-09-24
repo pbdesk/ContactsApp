@@ -183,3 +183,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 .c9
+node_modules
