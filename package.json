@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/pbdesk/ContactsApp/issues"
   },
-  "homepage": "https://github.com/pbdesk/ContactsApp"
+  "homepage": "https://github.com/pbdesk/ContactsApp",
+  "dependencies": {
+    "express": "^4.9.4",
+    "jade": "^1.7.0"
+  }
 }
