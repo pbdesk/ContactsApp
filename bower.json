@@ -1,0 +1,17 @@
+{
+  "name": "ContactsApp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pbdesk/ContactsApp",
+  "authors": [
+    "Pinal Bhatt"
+  ],
+  "description": "ContactsApp Bower components",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
