@@ -11,14 +11,21 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/api/contacts', function(req, res) {
-    res.send('test');
+    //res.send('test');
+    mongoose.model('Contact').find({}).exec(function(error, collection){
+         if(!error){
+              res.send(collection);
+         }
+    });
 })
 
 app.get('*', function(req, res){
      res.render('index');
 });
 
-mongoose.connect('mongodb://localhost/ContactsDB')
+//mongoose.connect('mongodb://localhost/ContactsDB')
+mongoose.connect('mongodb://contactdbuser:password@ds039860.mongolab.com:39860/contactsdb')
+
 
 var con = mongoose.connection;
 con.once('open', function(){
