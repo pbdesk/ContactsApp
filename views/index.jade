@@ -4,5 +4,11 @@ script(type='text/javascript', src='/bower_components/angular/angular.js')
 script(type='text/javascript', src='/app/app.js')
 
 body(ng-app='app')
-     div(ng-controller='testCtrl')
-          div {{test}}
+     .controller
+          h1 Contacts 
+          div(ng-controller='testCtrl')
+               .list-group
+                    a.list-group-item(href='#')(ng-repeat='contact in contacts')
+                         h4.list-group-item-heading {{contact.name}}
+                         p.list-group-item-text {{contact.email}}
+               
