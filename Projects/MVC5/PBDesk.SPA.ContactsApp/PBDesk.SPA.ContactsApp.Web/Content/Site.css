@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 70px;
+
     padding-bottom: 20px;
 }
 
@@ -23,12 +23,10 @@ textarea {
     max-width: 280px;
 }
 
-* {
-        box-sizing: border-box;
-      }
+
       .header-panel {
         background-color: #009587;
-        height: 144px;
+        height: 120px;
         position: relative;
         z-index: 3;
       }
@@ -48,11 +46,12 @@ textarea {
         overflow: auto;
         padding: 0;
       }
-      .menu, .menu * {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+        .menu, .menu * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
       .menu ul {
         padding: 0;
         margin: 7px 0;
@@ -92,26 +91,55 @@ textarea {
         margin-bottom: 60px;
         letter-spacing: 1.20000004768372px;
       }
-      .page {
-        transform: translateY(1080px);
-        transition: transform 0 linear;
-        display: none;
-        opacity: 0;
-        font-size: 16px;
-      }
-      .page.active {
-        transform: translateY(0px);
+.page {
+    -moz-transform: translateY(1080px);
+    -ms-transform: translateY(1080px);
+    -o-transform: translateY(1080px);
+    -webkit-transform: translateY(1080px);
+    transform: translateY(1080px);
+    -moz-transition: transform 0 linear;
+    -o-transition: transform 0 linear;
+    -webkit-transition: transform 0 linear;
+    transition: transform 0 linear;
+    display: none;
+    opacity: 0;
+    font-size: 16px;
+}
+    .page.active {
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -moz-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
         display: block;
         opacity: 1;
+    }
+    #opensource2 {
+        color: rgba(0, 0, 0, 0.62);
+        position: fixed;
+        margin-top: 80px;
+        margin-left: 50px;
+        z-index: 100;
+      }
+    #opensource1 {
+        color: rgba(0, 0, 0, 0.62);
+        position: fixed;
+        margin-top: 155px;
+        margin-left: 50px;
+        z-index: 100;
       }
       #opensource {
         color: rgba(0, 0, 0, 0.62);
         position: fixed;
-        margin-top: 50px;
+        margin-top: 230px;
         margin-left: 50px;
         z-index: 100;
       }
+      
       #source-modal h4 {
         color: black;
       }
