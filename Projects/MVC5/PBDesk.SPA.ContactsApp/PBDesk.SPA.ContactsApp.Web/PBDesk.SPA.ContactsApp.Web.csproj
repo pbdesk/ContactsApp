@@ -135,10 +135,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\material-wfont.css" />
+    <Content Include="css\material-wfont.min.css" />
+    <Content Include="css\material.css" />
+    <Content Include="css\material.min.css" />
+    <Content Include="css\ripples.css" />
+    <Content Include="css\ripples.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\LICENSE.txt" />
+    <Content Include="fonts\Material-Design-Icons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\material.js" />
+    <Content Include="js\material.min.js" />
+    <Content Include="js\ripples.js" />
+    <Content Include="js\ripples.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="test.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -160,6 +173,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="css\material-wfont.css.map" />
+    <Content Include="css\material-wfont.min.css.map" />
+    <Content Include="css\material.css.map" />
+    <Content Include="css\material.min.css.map" />
+    <Content Include="css\ripples.css.map" />
+    <Content Include="css\ripples.min.css.map" />
+    <Content Include="fonts\Material-Design-Icons.eot" />
+    <Content Include="fonts\Material-Design-Icons.ttf" />
+    <Content Include="fonts\Material-Design-Icons.woff" />
+    <Content Include="js\material.min.js.map" />
+    <Content Include="js\ripples.min.js.map" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
