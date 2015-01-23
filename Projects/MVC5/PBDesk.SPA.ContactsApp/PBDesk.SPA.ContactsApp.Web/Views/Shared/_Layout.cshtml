@@ -8,6 +8,7 @@
     <link href="/css/ripples.min.css" rel="stylesheet">
     <link href="/css/material-wfont.min.css" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="header-panel shadow-z-2">
@@ -26,7 +27,7 @@
         </div>
     </div>
 
-    <div class="container-fluid main">
+    <div class="container-fluid main" >
         <div class="row">
             <nav class="col-xs-2 menu">
 
@@ -63,16 +64,16 @@
                     </footer>
                 </div>
                 <div class="col-xs-2">
-                    <a class="btn btn-fab btn-material-teal" id="opensource2" href="/"><i class="mdi-action-home" style="color:white"></i></a>
+                    <a class="btn btn-fab btn-material-teal" id="opensource2" href="#/"><i class="mdi-action-home" style="color:white"></i></a>
                     <button class="btn btn-fab btn-material-teal" id="opensource"><i class="mdi-action-open-in-new" style="color:white"></i></button>
                     <button class="btn btn-fab btn-material-teal" id="opensource1"><i class="mdi-social-mood" style="color:white"></i></button>
-                                                            @*http://materializecss.com/icons.html
-        http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html
-          http://fezvrasta.github.io/bootstrap-material-design
+                    @*http://materializecss.com/icons.html
+                        http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html
+                          http://fezvrasta.github.io/bootstrap-material-design
 
-                                                            *@
+                    *@
                 </div>
-            </div>
+            </div>                                                                                                  
         </div>
     </div>
 
@@ -108,93 +109,107 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="/js/ripples.min.js"></script>
     <script src="/js/material.min.js"></script>
     <script>
-      window.page = window.location.hash || "#about";
+        //window.page = window.location.hash || "#about";
 
-      $(document).ready(function() {
-        if (window.page != "#about") {
-          $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+        //$(document).ready(function () {
+        //    if (window.page != "#about") {
+        //        $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+        //    }
+        //});
+
+        //$(window).on("resize", function () {
+        //    $("html, body").height($(window).height());
+        //    $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+        //    $(".pages").height($(window).height());
+        //}).trigger("resize");
+
+        //$(".menu li").click(function () {
+        //    // Menu
+        //    if (!$(this).data("target")) return;
+        //    if ($(this).is(".active")) return;
+        //    $(".menu li").not($(this)).removeClass("active");
+        //    $(".page").not(page).removeClass("active").hide();
+        //    window.page = $(this).data("target");
+        //    var page = $(window.page);
+        //    window.location.hash = window.page;
+        //    $(this).addClass("active");
+
+
+        //    page.show();
+
+        //    var totop = setInterval(function () {
+        //        $(".pages").animate({ scrollTop: 0 }, 0);
+        //    }, 1);
+
+        //    setTimeout(function () {
+        //        page.addClass("active");
+        //        setTimeout(function () {
+        //            clearInterval(totop);
+        //        }, 1000);
+        //    }, 100);
+        //});
+
+        function cleanSource(html) {
+            var lines = html.split(/\n/);
+
+            lines.shift();
+            lines.splice(-1, 1);
+
+            var indentSize = lines[0].length - lines[0].trim().length,
+                re = new RegExp(" {" + indentSize + "}");
+
+            lines = lines.map(function (line) {
+                if (line.match(re)) {
+                    line = line.substring(indentSize);
+                }
+
+                return line;
+            });
+
+            lines = lines.join("\n");
+
+            return lines;
         }
-      });
 
-      $(window).on("resize", function() {
-        $("html, body").height($(window).height());
-        $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
-        $(".pages").height($(window).height());
-      }).trigger("resize");
-
-      $(".menu li").click(function() {
-        // Menu
-        if (!$(this).data("target")) return;
-        if ($(this).is(".active")) return;
-        $(".menu li").not($(this)).removeClass("active");
-        $(".page").not(page).removeClass("active").hide();
-        window.page = $(this).data("target");
-        var page = $(window.page);
-        window.location.hash = window.page;
-        $(this).addClass("active");
-
-
-        page.show();
-
-        var totop = setInterval(function() {
-          $(".pages").animate({scrollTop:0}, 0);
-        }, 1);
-
-        setTimeout(function() {
-          page.addClass("active");
-          setTimeout(function() {
-            clearInterval(totop);
-          }, 1000);
-        }, 100);
-      });
-
-      function cleanSource(html) {
-        var lines = html.split(/\n/);
-
-        lines.shift();
-        lines.splice(-1, 1);
-
-        var indentSize = lines[0].length - lines[0].trim().length,
-            re = new RegExp(" {" + indentSize + "}");
-
-        lines = lines.map(function(line){
-          if (line.match(re)) {
-            line = line.substring(indentSize);
-          }
-
-          return line;
+        $("#opensource").click(function () {
+            $.get(window.location.href, function (data) {
+                var html = $(data).find(window.page).html();
+                html = cleanSource(html);
+                $("#source-modal pre").text(html);
+                $("#source-modal").modal();
+            });
         });
 
-        lines = lines.join("\n");
-
-        return lines;
-      }
-
-      $("#opensource").click(function() {
-        $.get(window.location.href, function(data){
-          var html = $(data).find(window.page).html();
-          html = cleanSource(html);
-          $("#source-modal pre").text(html);
-          $("#source-modal").modal();
-        });
-      });
-
-        $("#opensource1").click(function() {
-                 $("#source-modal1").modal();
+        $("#opensource1").click(function () {
+            $("#source-modal1").modal();
         });
 
     </script>
     <script>
-            $(document).ready(function() {
-                $.material.init();
-            });
+        $(document).ready(function () {
+            $.material.init();
+        });
     </script>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.min.js"></script>
+
+    <script src="~/ngApp/blocks/logger/logger.module.js"></script>
+    <script src="~/ngApp/blocks/logger/logger.js"></script>
+    <script src="~/ngApp/blocks/exception/exception.module.js"></script>
+    <script src="~/ngApp/blocks/exception/exception.js"></script>
+    <script src="~/ngApp/blocks/exception/exception-handler.provider.js"></script>
+
+
+    <script src="~/ngApp/Contacts/PBDesk.Contacts.module.js"></script>
+    <script src="~/ngApp/Contacts/PBDesk.Contacts.CRUDFactory.js"></script>
+    <script src="~/ngApp/Contacts/PBDesk.Contacts.ListController.js"></script>
+    <script src="~/ngApp/Contacts/PBDesk.Contacts.CreateController.js"></script>
+    <script src="~/ngApp/Contacts/PBDesk.Contacts.EditController.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>

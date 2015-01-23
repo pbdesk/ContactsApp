@@ -7,16 +7,17 @@ using System.Linq;
 
 namespace PBDesk.SPA.ContactsApp.Web.Migrations
 {
-    
-    internal sealed class Configuration : DbMigrationsConfiguration<PBDesk.SPA.ContactsApp.Web.Models.ContactsAppContext>
-    {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
+	
+	internal sealed class Configuration : DbMigrationsConfiguration<PBDesk.SPA.ContactsApp.Web.Models.ContactsAppContext>
+	{
+		public Configuration()
+		{
+			AutomaticMigrationsEnabled = false;
+		  
+		}
 
-        protected override void Seed(PBDesk.SPA.ContactsApp.Web.Models.ContactsAppContext context)
-        {
+		protected override void Seed(PBDesk.SPA.ContactsApp.Web.Models.ContactsAppContext context)
+		{
 			//  This method will be called after migrating to the latest version.
 
 			//  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -35,7 +36,7 @@ namespace PBDesk.SPA.ContactsApp.Web.Migrations
 				new Contact() { Id = 2, Name = "Qwer" },
 				new Contact() { Id = 3, Name = "Pqrs" },
 				new Contact() { Id = 4, Name = "Zxcv" }
-                );
-        }
-    }
+				);
+		}
+	}
 }

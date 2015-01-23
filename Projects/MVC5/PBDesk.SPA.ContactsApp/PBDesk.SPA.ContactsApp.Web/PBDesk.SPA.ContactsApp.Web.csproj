@@ -163,10 +163,13 @@
     <Content Include="ngApp\blocks\exception\exception.module.js" />
     <Content Include="ngApp\blocks\logger\logger.js" />
     <Content Include="ngApp\blocks\logger\logger.module.js" />
-    <Content Include="ngApp\blocks\router\routehelper.js" />
-    <Content Include="ngApp\blocks\router\router.module.js" />
-    <Content Include="ngApp\core\PBDesk.Contacts.module.js" />
-    <Content Include="ngApp\core\PBDesk.Contacts.CRUDFactory.js" />
+    <Content Include="ngApp\Contacts\PBDesk.Contacts.EditController.js" />
+    <Content Include="ngApp\Contacts\PBDesk.Contacts.CreateController.js" />
+    <Content Include="ngApp\Contacts\PBDesk.Contacts.ListController.js" />
+    <Content Include="ngApp\Contacts\PBDesk.Contacts.module.js" />
+    <Content Include="ngApp\Contacts\PBDesk.Contacts.CRUDFactory.js" />
+    <Content Include="ngApp\Contacts\views\item.html" />
+    <Content Include="ngApp\Contacts\views\list.html" />
     <Content Include="Scripts\_references.js" />
     <Content Include="material.html" />
     <Content Include="test.html" />
@@ -187,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ngApp\Visitor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -202,7 +204,6 @@
     <Content Include="fonts\Material-Design-Icons.woff" />
     <Content Include="js\material.min.js.map" />
     <Content Include="js\ripples.min.js.map" />
-    <Content Include="Views\Shared\_appLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PBDesk.EFRepository\PBDesk.EFRepository.csproj">

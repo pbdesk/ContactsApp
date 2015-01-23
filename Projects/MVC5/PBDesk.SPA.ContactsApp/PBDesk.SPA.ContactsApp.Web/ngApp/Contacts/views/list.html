@@ -1,0 +1,52 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" class="form-control floating-label" placeholder="filter" ng-model="filter">
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary btn-raised" ng-click="vm.SetViewMode('grid')" ng-disabled="vm.viewMode === 'grid'"><i class="large mdi-navigation-apps" style="color:white"></i></button>
+            <button class="btn btn-primary btn-raised" ng-click="vm.SetViewMode('list')" ng-disabled="vm.viewMode === 'list'"><i class="medium mdi-action-list" style="color:white"></i></button>
+            <button class="btn btn-primary btn-raised" ng-click="vm.SetViewMode('list')"><i class="large mdi-navigation-refresh" style="color:white"></i></button>
+            <a class="btn btn-primary btn-raised" href="#/Create"><i class="large mdi-content-add" style="color:white"></i></a>
+        </div>
+    </div>
+    <div ng-show="vm.viewMode === 'grid'">
+        <div class="row">
+            <div class="panel panel-primary col-md-4" ng-repeat="item in vm.items">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><td>{{item.Name}}</td></h3>
+                </div>
+                <div class="panel-body">
+                    {{item.Email}}
+                    {{item.Phone}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="vm.viewMode === 'list'">
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.items |  filter: filter">
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Email}}</td>
+                    <td>{{item.Phone}} </td>
+                    <td>
+                        <a class="btn btn-primary btn-raised" href="#/Edit/{{item.Id}}"><i class="large mdi-content-create" style="color:white"></i></a>
+                        <button class="btn btn-primary btn-raised" ng-click="vm.SetViewMode('list')"><i class="large mdi-content-clear" style="color:white"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     
+</div>
