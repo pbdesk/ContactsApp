@@ -133,6 +133,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501230217264_Initial.cs" />
+    <Compile Include="Migrations\201501230217264_Initial.Designer.cs">
+      <DependentUpon>201501230217264_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContactsAppContext.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -161,7 +165,8 @@
     <Content Include="ngApp\blocks\logger\logger.module.js" />
     <Content Include="ngApp\blocks\router\routehelper.js" />
     <Content Include="ngApp\blocks\router\router.module.js" />
-    <Content Include="ngApp\core\PBDesk.Contacts.core.module.js" />
+    <Content Include="ngApp\core\PBDesk.Contacts.module.js" />
+    <Content Include="ngApp\core\PBDesk.Contacts.CRUDFactory.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="material.html" />
     <Content Include="test.html" />
@@ -208,6 +213,11 @@
       <Project>{f55a9367-688c-4d86-bcc4-6b8c297c6af1}</Project>
       <Name>PBDesk.SPA.ContactsApp.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501230217264_Initial.resx">
+      <DependentUpon>201501230217264_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
