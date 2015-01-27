@@ -13,7 +13,7 @@ namespace PBDesk.SPA.ContactsApp.Web.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201501230217264_Initial"; }
+            get { return "201501271447322_Initial"; }
         }
         
         string IMigrationMetadata.Source

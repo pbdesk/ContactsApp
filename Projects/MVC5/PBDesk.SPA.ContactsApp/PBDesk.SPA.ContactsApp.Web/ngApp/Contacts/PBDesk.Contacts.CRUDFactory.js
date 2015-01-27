@@ -95,13 +95,13 @@
 			return deferred.promise;
 		}
 
-		var _delItem = function (id, position) {
+		var _delItem = function (id) {
 			var deferred = $q.defer();
 			$http.delete(apiUrl + id)
 			.then(
 				function (result, status, headers, httpconfig) {
 					//success
-					_items.splice(position, 1);                    
+                  
 					deferred.resolve();
 				},
 				function (result, status, headers, httpconfig) {

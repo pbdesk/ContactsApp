@@ -133,9 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201501230217264_Initial.cs" />
-    <Compile Include="Migrations\201501230217264_Initial.Designer.cs">
-      <DependentUpon>201501230217264_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201501271447322_Initial.cs" />
+    <Compile Include="Migrations\201501271447322_Initial.Designer.cs">
+      <DependentUpon>201501271447322_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContactsAppContext.cs" />
@@ -216,8 +216,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501230217264_Initial.resx">
-      <DependentUpon>201501230217264_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201501271447322_Initial.resx">
+      <DependentUpon>201501271447322_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

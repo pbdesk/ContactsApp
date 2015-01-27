@@ -18,9 +18,29 @@
             vm.viewMode = viewMode;
         }
 
-        activate();
+        vm.delete = function (position) {
+        	var id = 0;
+        	if (position > 0) {
+        		id = this.items[position].Id;
+        	}
+        	if (id > 0) {
+        		ContactsCRUDFactory.DelItem(id)
+				.then(function (result, status, headers, httpconfig) {
+					$("#contactRow" + position).fadeOut(2000);
+				}, function (result, status, headers, httpconfig) {
+					alert("error");
+				});
+        	}
+        	
+        }
 
-        function activate() {
+        vm.refresh = function () {
+        	init();
+        }
+
+        init();
+
+        function init() {
             ContactsCRUDFactory
                 .GetItems()
                 .then(function (result, status, headers, httpconfig) {

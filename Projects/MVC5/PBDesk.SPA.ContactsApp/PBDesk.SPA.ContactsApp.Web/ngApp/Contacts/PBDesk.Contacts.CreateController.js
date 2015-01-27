@@ -10,20 +10,20 @@
     function CreateController($location, ContactsCRUDFactory) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'PBDesk';
-        vm.items = [];
-
-        activate();
-
-        function activate() {
-            ContactsCRUDFactory
-                .GetItems()
-                .then(function (result, status, headers, httpconfig) {
-                    angular.copy(result, vm.items);
-
-                },function (result, status, headers, httpconfig) {
-                    alert("error");
-                });
+        vm.title = 'Create Contact';
+        vm.item = {};
+        vm.save = function () {
+        	if (vm.item.Name.trim().length > 0) {
+        		ContactsCRUDFactory.AddItem(vm.item)
+				.then(function (result, status, headers, httpconfig) {
+					$location.path('/');
+				}, function (result, status, headers, httpconfig) {
+					alert("error");
+				});
+        	}
         }
+
+
+        
     }
 })();

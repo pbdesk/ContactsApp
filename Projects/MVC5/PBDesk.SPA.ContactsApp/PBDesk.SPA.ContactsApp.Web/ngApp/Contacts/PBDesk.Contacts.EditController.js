@@ -5,25 +5,30 @@
         .module('PBDesk.Contacts')
         .controller('EditController', EditController);
 
-    EditController.$inject = ['$location', 'ContactsCRUDFactory'];
+    EditController.$inject = ['$location', '$routeParams', 'ContactsCRUDFactory'];
 
-    function EditController($location, ContactsCRUDFactory) {
+    function EditController($location, $routeParams, ContactsCRUDFactory) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'PBDesk';
-        vm.items = [];
+        vm.title = 'Edit Contact';
+        vm.item = {};
 
-        activate();
+        var id = $routeParams.Id;
 
-        function activate() {
-            ContactsCRUDFactory
-                .GetItems()
-                .then(function (result, status, headers, httpconfig) {
-                    angular.copy(result, vm.items);
-                    alert(vm.items.length);
-                },function (result, status, headers, httpconfig) {
-                    alert("error");
-                });
+        if (id > 0) {
+        	vm.item = ContactsCRUDFactory.GetItem(id);
+        }
+
+
+        vm.save = function () {
+        	if (vm.item.Id != null && vm.item.Id > 0 && vm.item.Name.trim().length > 0) {
+        		ContactsCRUDFactory.UpdItem(vm.item)
+				.then(function (result, status, headers, httpconfig) {
+					$location.path('/');
+				}, function (result, status, headers, httpconfig) {
+					alert("error");
+				});
+        	}
         }
     }
 })();
